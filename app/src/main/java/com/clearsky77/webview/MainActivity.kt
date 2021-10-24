@@ -21,4 +21,11 @@ class MainActivity : AppCompatActivity() {
         webView.loadUrl("https://www.naver.com")
     }
 
+    override fun onBackPressed() {
+        if(webView.canGoBack()){ // 이전 페이지가 있었다면
+            webView.goBack() // 이전 페이지로 돌아가라
+        }else {
+            super.onBackPressed() // 그렇지 않으면 앱 종료
+        }
+    }
 }
